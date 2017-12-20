@@ -6,7 +6,7 @@
 
 function List(props) {
     //TODO: Create list from props.
-    return (<ul>
+    return (<ul> {props.items}
     </ul>);
 };
 
@@ -14,10 +14,12 @@ var App = React.createClass({
   getInitialState: function() {
     //TODO: Set the initial state.
     return {
-        
+        term: '',
+        items: []
     };
   },
   onChange: function(event) {
+    this.setState()
     //TODO: Save current value in input field.
   },
   onSubmit: function(event) {
@@ -28,8 +30,8 @@ var App = React.createClass({
     return (
       <div>
         <h2>Todo List</h2>
-        <form className="App">
-          <input/>
+        <form className="App" onSubmit={this.onSubmit}>          
+        <input onChange={this.onChange}/>
           <button>Add</button>
         </form>
         <List items={this.state.items} />
